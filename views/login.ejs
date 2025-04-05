@@ -33,5 +33,14 @@
             </button>
         </form>
     </div>
+<script>
+    transporter.sendMail(mailOptions, (error, info) => {
+        if (error) {
+            console.error("Error sending email:", error);
+            return res.render('login', { error: "Failed to send verification email. Please try again." });
+        }
+        res.redirect('/verify');
+    });
+</script>
 </body>
 </html>
